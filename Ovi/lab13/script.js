@@ -17,7 +17,7 @@ function buttonClick(){
 */
 
 function buttonClickActions(){
-    debugger
+    
     var classIndex = generateRandomClassIndex()
     var appliedClassIndex = classList[classIndex]
     getBodyIDs(appliedClassIndex)
@@ -68,13 +68,33 @@ function displayUsedClasses(){
     functia displayMaxResults - calculeaza clasa care a fost folosita ce-a mai des / 2 modalitati
 */
 function displayMaxResults(){
-  
+    //debugger
+   var test =  findIndexOfGreatest(countClass)
+    var test2 = findIndexOfGreatest(classList)
     var maxDivID = document.getElementById('maxim')
+    var maxDivID2 = document.getElementById('maxim2')
     var maxValue=Math.max(...countClass)
     var className = countClass.indexOf(maxValue)
-    //for (let index = 0; index < classList.length; index++) {
-    //    var maxValue2 = countClass
-    //}
-    var textResult="Cea mai folosita clasa este "  + classList[className]+ " si a fost folosita de " + maxValue+ " ori"
+    var textResult1="Cea mai folosita clasa este "  + classList[test] + " si a fost folosita de " + countClass[test2] +" ori"
+    var textResult="Cea mai folosita clasa este "  + classList[className] + " si a fost folosita de " + maxValue+ " ori"
+    
     maxDivID.innerHTML=textResult
+    maxDivID2.innerHTML=textResult1
 }
+
+
+
+    function findIndexOfGreatest(array) {
+        var greatest;
+        var indexOfGreatest;
+        for (var i = 0; i < countClass.length; i++) {
+          if (!greatest || countClass[i] > greatest) {
+            greatest = countClass[i];
+            indexOfGreatest = i;
+          }
+        }
+        return indexOfGreatest;
+
+      }
+
+
