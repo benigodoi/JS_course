@@ -1,44 +1,72 @@
 
-function checkAnswerv2() { 
-//  debugger
-  correct_results = 0;
-  incorrect_results = 0;
-  correct_answers = ['Vilnius','Volga','Mont Blanc','Germania','Serbia']
-  for (let i = 1; i <= correct_answers.length; i++) {
-      var answer = document.getElementsByName("question" + i)
-      for (let j = 0; j < answer.length; j++) {
-          selected_elem = document.getElementById(answer[j].value);
-
-          if(selected_elem.getAttribute('class') !=null) {
-            selected_elem.removeAttribute('class')
-        }
-          //selected_elem.classList.remove("correct-answer")
-          //selected_elem.classList.remove("incorrect-answer")
-          if (answer[j].checked) {
-              if (correct_answers.includes(answer[j].value)) {
-                  correct_results++;
-                  selected_elem.classList.add("correct-answer");
-              } else { 
-                  incorrect_results++
-                  selected_elem.classList.add("incorrect-answer") 
-              }
-          }
-      }
-  }
-  if (correct_results + incorrect_results != 5) {
-      alert("Nu ai raspuns la toate intrebarile")
-      return;
-  }
-  console.log(correct_results)
-  console.log(incorrect_results)
-  show_correct_results = document.getElementById("correct").innerHTML = "Ai raspuns corect la" + " " + correct_results + " " + "intrebari";
-  show_incorrect_results = document.getElementById("incorrect").innerHTML = "Ai raspuns gresit la" + " " + incorrect_results + " " + "intrebari";
-  //show_correct_results.innerHTML = "Ai raspuns corect la" + " " + correct_results + " " + "intrebari";
-  //show_incorrect_results.innerHTML = "Ai raspuns gresit la" + " " + incorrect_results + " " + "intrebari";
-}
-
-
-
 // functie pt numar de intrebari rasp si highlighr pe care nu sunt
 //
 //buton inactiv pana nu se completeaza toate sau sa analizeze inainte de raspunsuri daca sunt toate completate
+
+correct_results = 0;
+incorrect_results = 0;
+result = 0;
+correct_answers = ["Vilnius", "Volga", "Mont Blanc", "Germania", "Serbia"];
+function evaluateAnswers() {
+  //debugger
+  checkIfAnswerSelected();
+}
+
+var questionsDiv, index2;
+function checkIfAnswerSelected() {
+  var questionsDiv;
+  var checkedElement;
+  //debugger
+  for (let index2 = 1; index2 <= correct_answers.length; index2++) {
+    getQuestionsDiv(index2);
+    getEachRadio(index2, questionsDiv);
+    
+  }
+  if (result != 5) {
+    alert(
+      "nu ai rasp la toate intrebarile")
+  }
+  else{
+    show_correct_results = document.getElementById("correct").innerHTML = "Ai raspuns corect la" + " " + correct_results + " " + "intrebari";
+      show_incorrect_results = document.getElementById("incorrect").innerHTML = "Ai raspuns gresit la" + " " + incorrect_results + " " + "intrebari";
+  }
+}
+
+function getQuestionsDiv(index2) {
+  //debugger
+
+  var questionsDiv = document.getElementById("q" + index2);
+  return questionsDiv;
+}
+
+function getEachRadio(index2, questionDiv) {
+  debugger
+
+  var eachQuestion = document.getElementsByName("question" + index2);
+  for (let counter = 0; counter < eachQuestion.length; counter++) {
+    if (
+      eachQuestion[counter].type === "radio" && eachQuestion[counter].checked
+    ) {
+      console.log(eachQuestion[counter]);
+      //questionsDiv.classList.add("incorrect-answer")
+      checkedElement = eachQuestion[counter].value;
+      result++;
+      validateCorrectResponse(checkedElement,eachQuestion)
+    }
+  }
+}
+
+function validateCorrectResponse(response,eachQuestion) {
+    //debugger
+  if (correct_answers.includes(response)) {
+    correct_results++;
+    //eachQuestion.classList.add("correct-answer");
+  } else {
+    incorrect_results++;
+    //eachQuestion.classList.add("incorrect-answer");
+  }
+
+  console.log(correct_results);
+  console.log(incorrect_results);
+  
+}
