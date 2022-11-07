@@ -8,6 +8,7 @@ incorrect_results = 0;
 result = 0;
 correct_answers = ["Vilnius", "Volga", "Mont Blanc", "Germania", "Serbia"];
 function evaluateAnswers() {
+
   //debugger
   checkIfAnswerSelected();
 }
@@ -28,7 +29,10 @@ function checkIfAnswerSelected() {
   }
   else{
     show_correct_results = document.getElementById("correct").innerHTML = "Ai raspuns corect la" + " " + correct_results + " " + "intrebari";
-      show_incorrect_results = document.getElementById("incorrect").innerHTML = "Ai raspuns gresit la" + " " + incorrect_results + " " + "intrebari";
+    show_incorrect_results = document.getElementById("incorrect").innerHTML = "Ai raspuns gresit la" + " " + incorrect_results + " " + "intrebari";
+    result = 0;
+    correct_results = 0;
+    incorrect_results = 0;
   }
 }
 
@@ -40,7 +44,7 @@ function getQuestionsDiv(index2) {
 }
 
 function getEachRadio(index2, questionDiv) {
-  debugger
+//  debugger
 
   var eachQuestion = document.getElementsByName("question" + index2);
   for (let counter = 0; counter < eachQuestion.length; counter++) {
