@@ -8,47 +8,49 @@
     <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
-<body>
-    
-    <form id="quiz" name="quiz">
-       <fieldset>
-        <h4 id="q1">1.Care este capitala Lituaniei ?
-        <div id="Riga"><input type="radio"  name="question1" value="Riga" required>Riga</div>
-        <div id="Vilnius"><input type="radio" name="question1" value="Vilnius">Vilnius</div>
-        <div id="Tallinn"><input type="radio"  name="question1" value="Tallinn">Tallinn</div>
-        <div id="Minsk"><input type="radio"  name="question1" value="Minsk">Minsk</div></h4>
-        <h4 id="q2">2.Care este cel mai lung fluviu din Europa ?
-        <div id="Dunarea"><input type="radio" name="question2" value="Dunarea" required>Dunarea</div>
-        <div id="Rin"><input type="radio" name="question2" value="Rin">Rin</div>
-        <div id="Volga" ><input type="radio" name="question2" value="Volga">Volga</div>
-        <div id="Nipru"><input type="radio" name="question2" value="Nipru" >Nipru</div></h4>
-        <h4 id="q3">3.Care este cel mai inalt varf din U.E. ?
-        <div id="Mont Blanc"><input type="radio" name="question3" value="Mont Blanc" required>Mont Blanc</div>
-        <div id="Moldoveanu"><input type="radio"  name="question3" value="Moldoveanu">Moldoveanu</div>
-        <div id="Monte Bianco"><input type="radio"  name="question3" value="Monte Bianco">Monte Bianco</div>
-        <div id="Olimp"><input type="radio"  name="question3" value="Olimp">Olimp</div></h4>
-        <h4 id="q4">Care este tara cu cea mai mare populatie din U.E. ?
-        <div id="Franta"><input type="radio" name="question4" value="Franta" required>Franta</div>
-        <div id="Italia"><input type="radio" name="question4" value="Italia">Italia</div>
-        <div id="Germania" ><input type="radio" name="question4" value="Germania">Germania</div>
-        <div id="U.K."><input type="radio" name="question4" value="U.K.">U.K.</div></h4>
-        <h4 id="q5">Care tara nu are iesire la mare ?
-        <div id="Polonia"><input type="radio" name="question5" value="Polonia" required>Polonia</div>
-        <div id="Ucraina"><input type="radio" name="question5" value="Ucraina" >Ucraina</div>
-        <div id="Muntenegru" ><input type="radio" name="question5" value="Muntenegru" >Muntenegru</div>
-        <div id="Serbia"><input type="radio" name="question5" value="Serbia" >Serbia</div></h4><br>
-        <!-- <input id="button" type="button" value="Trimite Raspunsurile" onclick="question_results()"> -->
-        <input id="button" type="button" value="Trimite Raspunsurile" onclick="evaluateAnswers()">
-        <p id="correct"></p>
-        <p id="incorrect"></p>
-    </fieldset>
-    
-
-
-    </form>
-
-
-
-    
-</body>
+    <body>
+        <form id="quiz" name="quiz">
+            <fieldset>
+                <div class="question question1">
+                    <h4 id="q1">1.Care este capitala Lituaniei ?</h4>
+                    <div id="Riga"><input type="radio"  name="question1" value="Riga" required>Riga</div>
+                    <div id="Vilnius"><input type="radio" name="question1" value="Vilnius">Vilnius</div>
+                    <div id="Tallinn"><input type="radio"  name="question1" value="Tallinn">Tallinn</div>
+                    <div id="Minsk"><input type="radio"  name="question1" value="Minsk">Minsk</div>
+                </div>
+                <div class="question question2">
+                    <h4 id="q2">2.Care este cel mai lung fluviu din Europa ?</h4>
+                    <div id="Dunarea"><input type="radio" name="question2" value="Dunarea" required>Dunarea</div>
+                    <div id="Rin"><input type="radio" name="question2" value="Rin">Rin</div>
+                    <div id="Volga" ><input type="radio" name="question2" value="Volga">Volga</div>
+                    <div id="Nipru"><input type="radio" name="question2" value="Nipru" >Nipru</div>
+                </div>     
+                <div class="question question3">
+                    <h4 id="q3">3.Care este cel mai inalt varf din U.E. ?</h4>  
+                    <div id="Mont Blanc"><input type="radio" name="question3" value="Mont Blanc" required>Mont Blanc</div>
+                    <div id="Moldoveanu"><input type="radio"  name="question3" value="Moldoveanu">Moldoveanu</div>
+                    <div id="Monte Bianco"><input type="radio"  name="question3" value="Monte Bianco">Monte Bianco</div>
+                    <div id="Olimp"><input type="radio"  name="question3" value="Olimp">Olimp</div>
+                </div>
+                <div class="question question4">
+                    <h4 id="q4">Care este tara cu cea mai mare populatie din U.E. ?</h4>
+                    <div id="Franta"><input type="radio" name="question4" value="Franta" required>Franta</div>
+                    <div id="Italia"><input type="radio" name="question4" value="Italia">Italia</div>
+                    <div id="Germania" ><input type="radio" name="question4" value="Germania">Germania</div>
+                    <div id="U.K."><input type="radio" name="question4" value="U.K.">U.K.</div>
+                </div>
+            
+                <div class="question question5">    
+                    <h4 id="q5">Care tara nu are iesire la mare ?</h4>
+                    <div id="Polonia"><input type="radio" name="question5" value="Polonia" required>Polonia</div>
+                    <div id="Ucraina"><input type="radio" name="question5" value="Ucraina" >Ucraina</div>
+                    <div id="Muntenegru" ><input type="radio" name="question5" value="Muntenegru" >Muntenegru</div>
+                    <div id="Serbia"><input type="radio" name="question5" value="Serbia" >Serbia</div><br>
+                </div>
+                <input id="button" type="button" value="Trimite Raspunsurile" onclick="buttonClickActions()">
+                <p id="correct"></p>
+                <p id="incorrect"></p>
+            </fieldset>
+        </form>    
+    </body>
 </html>
